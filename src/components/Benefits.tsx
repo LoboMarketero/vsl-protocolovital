@@ -4,14 +4,12 @@ import { Scale, Droplet, Battery, CandyCane, Moon, Sparkles } from 'lucide-react
 interface BenefitProps {
   icon: React.ReactNode;
   text: string;
-  delay: number;
 }
 
-const Benefit: React.FC<BenefitProps> = ({ icon, text, delay }) => {
+const Benefit: React.FC<BenefitProps> = ({ icon, text }) => {
   return (
     <div 
-      className="flex items-start gap-2 p-2 rounded-lg transition-all duration-300 hover:bg-white/50 animate-on-scroll"
-      style={{ animationDelay: `${delay}ms` }}
+      className="flex items-start gap-2 p-2 rounded-lg transition-all duration-300 hover:bg-white/50 animate-on-scroll show"
     >
       <div className="bg-jade-100 p-2 rounded-full text-jade-600 hover-bounce">
         {icon}
@@ -27,40 +25,34 @@ const Benefits: React.FC = () => {
   const benefits = [
     {
       icon: <Scale className="h-6 w-6" />,
-      text: "Perda de até 9kg sem dietas",
-      delay: 100
+      text: "Perda de até 9kg sem dietas"
     },
     {
       icon: <Droplet className="h-6 w-6" />,
-      text: "Barriga visivelmente menos inchada em 72h",
-      delay: 150
+      text: "Barriga visivelmente menos inchada em 72h"
     },
     {
       icon: <Battery className="h-6 w-6" />,
-      text: "Mais energia sem precisar de café",
-      delay: 200
+      text: "Mais energia sem precisar de café"
     },
     {
       icon: <CandyCane className="h-6 w-6" />,
-      text: "Desejo por doces desaparecendo",
-      delay: 250
+      text: "Desejo por doces desaparecendo"
     },
     {
       icon: <Moon className="h-6 w-6" />,
-      text: "Sono mais profundo e humor mais estável",
-      delay: 300
+      text: "Sono mais profundo e humor mais estável"
     },
     {
       icon: <Sparkles className="h-6 w-6" />,
-      text: "Melhora na pele, unhas e cabelo",
-      delay: 350
+      text: "Melhora na pele, unhas e cabelo"
     }
   ];
 
   return (
     <section className="section-spacing" id="benefits">
       <div className="container-custom">
-        <h2 className="section-title animate-on-scroll mb-2">Resultados que você vai sentir nos primeiros dias:</h2>
+        <h2 className="section-title animate-on-scroll show mb-2">Resultados que você vai sentir nos primeiros dias:</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {benefits.map((benefit, index) => (
