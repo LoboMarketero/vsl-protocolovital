@@ -10,15 +10,14 @@ import CTAButton from './components/CTAButton';
 import Pricing from './components/Pricing';
 
 function App() {
-  const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(true); // Show immediately
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowContent(true);
-      document.querySelectorAll('.hidden-content').forEach(el => {
-        el.classList.add('show');
-      });
-    }, 300000); // 5 minutes
+    // Show content immediately
+    setShowContent(true);
+    document.querySelectorAll('.hidden-content').forEach(el => {
+      el.classList.add('show');
+    });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,7 +34,6 @@ function App() {
     animateElements.forEach(el => observer.observe(el));
 
     return () => {
-      clearTimeout(timer);
       animateElements.forEach(el => observer.unobserve(el));
     };
   }, []);
@@ -63,16 +61,12 @@ function App() {
           </div>
         </div>
       </div>
-      <div 
-        className={`transition-all duration-1000 ease-in-out overflow-hidden ${
-          showContent ? 'opacity-100 max-h-[5000px]' : 'opacity-0 max-h-0'
-        }`}
-      >
+      <div className="opacity-100 max-h-none">
         <div className="container-custom">
           <div className="w-full max-w-xl mx-auto px-4 mb-8">
             <CTAButton 
               text="ACESSAR MEU PROTOCOLO 4F AGORA" 
-              className="w-full md:w-auto text-center uppercase hidden-content"
+              className="w-full md:w-auto text-center uppercase show"
             />
           </div>
         </div>

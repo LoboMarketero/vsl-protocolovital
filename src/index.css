@@ -43,7 +43,7 @@
   }
   
   .animate-on-scroll {
-    @apply opacity-0 transition-all duration-700 ease-out transform translate-y-10;
+    @apply opacity-100 transition-all duration-0 ease-out transform translate-y-0;
   }
   
   .animate-on-scroll.show {
@@ -51,15 +51,15 @@
   }
 
   .hidden-content {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 1s ease-in-out;
+    opacity: 1;
+    max-height: none;
+    overflow: visible;
+    transition: none;
   }
 
   .hidden-content.show {
     opacity: 1;
-    max-height: 1000px;
+    max-height: none;
   }
 }
 
@@ -105,5 +105,5 @@
 
 /* Content reveal transition */
 .content-reveal {
-  transition: all 1s ease-in-out;
+  transition: none;
 }
